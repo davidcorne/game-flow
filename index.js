@@ -27,9 +27,15 @@ app.get('/books/:bookName', (request, response) => {
 })
 
 app.get('/books/:bookName/:pageName', (request, response) => {
-    const book = request.params.bookName
+    const bookName = request.params.bookName
     const pageName = request.params.pageName
-    const html = pug.renderFile('template/page.pug', BOOKS[0][pageName])
+    const page = BOOKS[0][pageName]
+    const locals = {
+        bookName: bookName, 
+        ...page
+    }
+    console.log(locals)
+    const html = pug.renderFile('template/page.pug', locals)
     response.send(html)
 })
 

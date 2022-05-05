@@ -5,3 +5,10 @@ html(lang="en")
   body 
     h1 #{header}
     p #{body}
+    if adjecent
+      each route in adjecent
+        div 
+          p #{route.description}
+          a(href='/books/' + bookName + '/' + route.key)
+            #{route.key}
+            

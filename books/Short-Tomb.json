@@ -37,7 +37,7 @@
     "4": {
         "header": "The Treasure Room",
         "body": "You enter a chamber filled with light from an unknown source. In it looks like an ancient altar, surrounded by glittering treasure. However as you move forward to claim it, a mummy moans from behind a column and lurches forward to attack you. Enter combat.",
-        "adjacent": [
+        "adjecent": [
             {
                 "key": "5",
                 "description": "You defeat the mummy"
