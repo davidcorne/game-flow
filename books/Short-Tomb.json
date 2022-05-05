@@ -1,63 +1,67 @@
 {
-    "1": {
-        "start": true,
-        "header": "You Begin",
-        "body": "Your adventure begins at the entrance of a tomb",
-        "adjecent": [
-            {
-                "key": "2",
-                "description": "Go into the tomb?"
-            }
-        ]
-    },
-    "2": {
-        "header": "Tomb Entrance",
-        "body": "You enter a shadowy door, upon trudging down you come to a T junction, seeing a left and a right corridor",
-        "adjecent": [
-            {
-                "key": "3",
-                "description": "Turn left"
-            },
-            {
-                "key": "4",
-                "description": "Turn right"
-            }
-        ]
-    },
-    "3": {
-        "header": "Dead End",
-        "body": "You see a blank wall",
-        "adjecent": [
-            {
-                "key": "2",
-                "description": "There is nothing more to see here, return to the T junction"
-            }
-        ]
-    },
-    "4": {
-        "header": "The Treasure Room",
-        "body": "You enter a chamber filled with light from an unknown source. In it looks like an ancient altar, surrounded by glittering treasure. However as you move forward to claim it, a mummy moans from behind a column and lurches forward to attack you. Enter combat.",
-        "adjecent": [
-            {
-                "key": "5",
-                "description": "You defeat the mummy"
-            },
-            {
-                "key": "6",
-                "description": "The mummy defeats you"
-            }
-        ]
-    },
-    "5": {
-        "header": "You have Found the Loot",
-        "body": "You have defeated the guardian of the treasure, and it is now yours! **Congratulations**, you are victorious.",
-        "end": true,
-        "adjacent": []
-    },
-    "6": {
-        "header": "You are Defeated",
-        "body": "Your body lies broken on the floor, you have been crushed beneith the mummie's powerful blows. The last experience you have on this mortal coil is being heavily dragged towards a waiting open sarcophagus. **You are dead, your adventure ends here.**",
-        "end": true,
-        "adjacent": []
+    "bookName": "Short Tomb",
+    "bookPath": "short-tomb",
+    "pages": {
+        "1": {
+            "start": true,
+            "header": "You Begin",
+            "body": "Your adventure begins at the entrance of a tomb",
+            "adjecent": [
+                {
+                    "key": "2",
+                    "description": "Go into the tomb?"
+                }
+            ]
+        },
+        "2": {
+            "header": "Tomb Entrance",
+            "body": "You enter a shadowy door, upon trudging down you come to a T junction, seeing a left and a right corridor",
+            "adjecent": [
+                {
+                    "key": "3",
+                    "description": "Turn left"
+                },
+                {
+                    "key": "4",
+                    "description": "Turn right"
+                }
+            ]
+        },
+        "3": {
+            "header": "Dead End",
+            "body": "You see a blank wall",
+            "adjecent": [
+                {
+                    "key": "2",
+                    "description": "There is nothing more to see here, return to the T junction"
+                }
+            ]
+        },
+        "4": {
+            "header": "The Treasure Room",
+            "body": "You enter a chamber filled with light from an unknown source. In it looks like an ancient altar, surrounded by glittering treasure. However as you move forward to claim it, a mummy moans from behind a column and lurches forward to attack you. Enter combat.",
+            "adjecent": [
+                {
+                    "key": "5",
+                    "description": "You defeat the mummy"
+                },
+                {
+                    "key": "6",
+                    "description": "The mummy defeats you"
+                }
+            ]
+        },
+        "5": {
+            "header": "You have Found the Loot",
+            "body": "You have defeated the guardian of the treasure, and it is now yours! **Congratulations**, you are victorious.",
+            "end": true,
+            "adjacent": []
+        },
+        "6": {
+            "header": "You are Defeated",
+            "body": "Your body lies broken on the floor, you have been crushed beneith the mummie's powerful blows. The last experience you have on this mortal coil is being heavily dragged towards a waiting open sarcophagus. **You are dead, your adventure ends here.**",
+            "end": true,
+            "adjacent": []
+        }
     }
 }

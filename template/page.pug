@@ -1,7 +1,7 @@
 doctype html
 html(lang="en")
   head
-    title=header
+    title=bookName
   body 
     h1 #{header}
     p #{body}
@@ -9,6 +9,5 @@ html(lang="en")
       each route in adjecent
         div 
           p #{route.description}
-          a(href='/books/' + bookName + '/' + route.key)
+          a(href='/books/' + bookPath + '/' + route.key)
             #{route.key}
-            

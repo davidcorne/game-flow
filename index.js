@@ -1,20 +1,20 @@
 const express = require('express')
 const app = express()
+const path = require('path')
 const pug = require('pug');
 const fs = require('fs');
 const { request, response } = require('express');
 const port = 3000
 
-const BOOKS = [
-
-]
+const BOOKS = {}
 
 const readBook = function(fileName) {
     // Make this async
     const rawData = fs.readFileSync(fileName)
     const jsonBook = JSON.parse(rawData)
     // Verify book json
-    BOOKS.push(jsonBook)
+    const bookPath = path.basename(fileName, path.extname(fileName))
+    BOOKS[bookPath] = jsonBook
 }
 
 const startup = function() {
@@ -22,21 +22,46 @@ const startup = function() {
     console.log(`Example app listening on port ${port}`)
 }
 
-app.get('/books/:bookName', (request, response) => {
-    response.send(request.params)
-})
+const getStartPage = function(book) {
+    return '1'
+}
 
-app.get('/books/:bookName/:pageName', (request, response) => {
-    const bookName = request.params.bookName
-    const pageName = request.params.pageName
-    const page = BOOKS[0][pageName]
+const error = function(message, response) {
+    response.send(`ERROR: $(message)`)
+}
+
+const displayPage = function(bookPath, pageName, response) {
+    if (!bookPath in BOOKS) {
+        error(`Didn't find $(bookPath)`, response)
+        return
+    } 
+    const book = BOOKS[bookPath]
+    if (!pageName in book.pages) {
+        error(`Didn't find $(pageName)`, response)
+    }
+    const page = book.pages[pageName]
     const locals = {
-        bookName: bookName, 
+        bookPath: bookPath, 
+        bookName: book.bookName,
         ...page
     }
-    console.log(locals)
     const html = pug.renderFile('template/page.pug', locals)
-    response.send(html)
+        response.send(html)
+}
+
+app.get('/books/:bookPath', (request, response) => {
+    const bookPath = request.params.bookPath
+    if (!bookPath in BOOKS) {
+        error(`Didn't find $(bookPath)`, response)
+    }
+    const pageName = getStartPage(bookPath)
+    displayPage(bookPath, pageName, response)
+})
+
+app.get('/books/:bookPath/:pageName', (request, response) => {
+    const bookPath = request.params.bookPath
+    const pageName = request.params.pageName
+    displayPage(bookPath, pageName, response)
 })
 
 app.get('/', (request, response) => {
