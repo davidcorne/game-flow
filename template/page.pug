@@ -2,12 +2,13 @@ doctype html
 html(lang="en")
   head
     title=bookName
+    link(rel="stylesheet", type="text/css", href="/public/index.css")
   body 
     h1 #{header}
     p #{body}
     if adjecent
       each route in adjecent
-        div 
+        div.route
           p #{route.description}
           a(href='/books/' + bookPath + '/' + route.key)
             #{route.key}

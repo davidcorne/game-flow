@@ -70,6 +70,17 @@ app.get('/books/:bookPath/:pageName', (request, response) => {
     displayPage(bookPath, pageName, response)
 })
 
+app.get('/public/*', function (request, response) {
+    const filePath = path.join(__dirname, request.path)
+    fs.stat(filePath, function (error, stats) {
+      if (error) {
+        error('Resource ${request.path} not found', response)
+      } else {
+        response.sendFile(filePath)
+      }
+    })
+  })
+  
 app.get('/', (request, response) => {
     // Add some book choosing mechanism
     response.redirect(307, '/books/Short-Tomb')
