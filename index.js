@@ -8,7 +8,7 @@ const port = 3000
 
 const BOOKS = {}
 
-const readBook = function(fileName) {
+const readBookSync = function(fileName) {
     // Make this async
     const rawData = fs.readFileSync(fileName)
     const jsonBook = JSON.parse(rawData)
@@ -18,7 +18,7 @@ const readBook = function(fileName) {
 }
 
 const startup = function() {
-    readBook('books/Short-Tomb.json')
+    readBookSync('books/Short-Tomb.json')
     console.log(`Example app listening on port ${port}`)
 }
 
