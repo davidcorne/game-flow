@@ -22,8 +22,14 @@ const startup = function() {
     console.log(`Example app listening on port ${port}`)
 }
 
-const getStartPage = function(book) {
-    return '1'
+const getStartPage = function(bookPath) {
+    const book = BOOKS[bookPath]
+    for(const pageName in book.pages) {
+        const page = book.pages[pageName]
+        if (page.start) {
+            return pageName
+        }
+    }
 }
 
 const error = function(message, response) {
